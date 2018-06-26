@@ -1,6 +1,9 @@
-# Ipologistis
+# Ipologistis Morion
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+This project is about to see how many points you get in greek exams based on your score and grades.
+
+I used angular router in order to change page, and i use ng-2-validation in order to validate then input fields for min and max.
 
 ## Development server
 
