@@ -1,0 +1,54 @@
+<div class="row">
+<div class="proto col-md-5 ">
+  <h4 class="givespace">ΕΙΣΑΓΩΓΗ ΒΑΘΜΩΝ</h4>
+  <p>Για το πρώτο πεδίο εισάγουμε βαθμό στο μάθημα <b>λατινικά</b> ενώ για το τρίτο πεδίο εισάγουμε βαθμόυ στη <b>Βιολογία</b></p>
+<form (ngSubmit)="onSubmit()" #f="ngForm" class="formmathimata">
+  <div class="form-group">
+    <label for="usr">Ν.Γλώσσα</label>
+    <input   class="form-control"  id="gloosaproto" ngModel required name="gloosaproto" type="number" #glossa="ngModel" [min]=0 [max]="20">
+    <span class="help-block" *ngIf="!glossa.valid && glossa.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</span>
+  </div>
+  
+  <div class="form-group">
+    <label for="usr">Αρχαία (Β)</label>
+    <input  class="form-control" id="arxaiaproto"   required ngModel name="arxaiaproto" type="number" #arxaiaproto="ngModel" [min]=0 [max]="20">
+    <span class="help-block" *ngIf="!arxaiaproto.valid && arxaiaproto.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</span>
+  </div>
+  
+  <div class="form-group">
+    <label for="usr">Ιστορία προσανατολισμού (Γ)</label>
+    <input  class="form-control" id="istoriaproto"  required ngModel name="istoriaproto" type="number" #istoriaproto="ngModel" [min]=0 [max]="20">
+    <span class="help-block" *ngIf="!istoriaproto.valid && istoriaproto.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</span>
+  </div>
+  
+  <div class="form-group">
+      <label for="usr">Επιλέξτε Μάθημα Επιλογής</label>
+      <select class="form-control" id="mathimaepilogis" (change)="changelesson($event.target)">
+          <option [value]="1">Λατινικά</option>
+          <option [value]="2">Βιολογία</option>
+        </select>
+  </div>
+
+<div class="form-group" *ngIf="islatinika">
+    <label for="usr">Λατινικά (Δ) </label>
+    <input  class="form-control" id="latinikaproto" ngModel  name="latinikaproto" required type="number"  #latinikaproto="ngModel" [min]=0 [max]="20">
+    <span class="help-block" *ngIf="!latinikaproto.valid && latinikaproto.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</span>
+</div>
+  
+  <div class="form-group" *ngIf="!islatinika">
+      <label for="usr">Βιολογία γενικής πεδίας</label>
+      <input  class="form-control" id="biologiaproto" ngModel  name="biologiaproto" required type="number" #biologiaproto="ngModel" [min]=0 [max]="20">
+      <span class="help-block" *ngIf="!biologiaproto.valid && biologiaproto.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</span>
+   </div>
+  
+
+  <button class="btn btn-success" [disabled]="!f.valid"><span *ngIf="islatinika">ΥΠΟΛΟΓΙΣΜΟΣ 1ο Πεδίο</span><span *ngIf="!islatinika">ΥΠΟΛΟΓΙΣΜΟΣ 3ο Πεδίο</span></button>
+  
+</form>
+</div>
+<div class="col-md-7 moria">
+    <h4 class="givespace">ΥΠΟΛΟΓΙΣΜΟΣ ΜΟΡΙΩΝ</h4>
+    <h6 *ngIf="islatinika">1ο Επιστημονικό Πεδίο Ανθρωπιστικών, Νομικών και Κοινωνικών Επιστημών: <span>{{moriaproto}}</span></h6> 
+    <h6 *ngIf="!islatinika">3ο Επιστημονικό Πεδίο Επιστημών Υγείας και Ζωής:<span>{{moriatrito}}</span></h6>
+</div>
+</div>

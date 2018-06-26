@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="proto col-md-5 ">
+      <h4 class="givespace">ΕΙΣΑΓΩΓΗ ΒΑΘΜΩΝ</h4>
+      <p>Για το πρώτο πεδίο εισάγουμε βαθμό στο μάθημα <b>Μαθηματικά προσανατολισμού</b> ενώ για το τρίτο πεδίο εισάγουμε βαθμό στη <b>Βιολογία προσανατολισμού</b></p>
+    <form (ngSubmit)="onSubmit()" #f="ngForm" class="formmathimata">
+      <div class="form-group">
+        <label for="usr">Ν.Γλώσσα</label>
+        <input   class="form-control"  id="glossa"    ngModel required name="glossa" type="number" #glossa="ngModel" [min]=0 [max]="20">
+        <span class="help-block" *ngIf="!glossa.valid && glossa.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</span>
+      </div>
+      
+      <div class="form-group">
+        <label for="usr">Μαθηματικά προσανατολισμού</label>
+        <input  class="form-control" id="mathimatika"   required ngModel name="mathimatika" type="number" #mathimatika="ngModel" [min]=0 [max]="20">
+        <span class="help-block" *ngIf="!mathimatika.valid && mathimatika.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</span>
+      </div>
+      
+      <div class="form-group">
+        <label for="usr">Α.Ε.Π.Π.</label>
+        <input  class="form-control" id="aepp"   required ngModel name="aepp" type="number" #aepp="ngModel" [min]=0 [max]="20">
+        <span class="help-block" *ngIf="!aepp.valid && aepp.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</span>
+      </div>
+      
+      <div class="form-group">
+          <label for="usr">Επιλέξτε Μάθημα Επιλογής</label>
+          <select class="form-control" id="mathimaepilogis" (change)="changelesson($event.target)">
+              <option [value]="1">Βιολογία γενικής παιδείας</option>
+              <option [value]="2">Α.Ο.Θ </option>
+            </select>
+      </div>
+      <div class="form-group" *ngIf="isbiologia">
+        <label for="usr">Βιολογία γενικής παιδείας </label>
+        <input  class="form-control" id="biologia" ngModel  name="biologia" required type="number"  #biologia="ngModel" [min]=0 [max]="20">
+        <span class="help-block" *ngIf="!biologia.valid && biologia.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</span>
+      </div>
+      
+      <div class="form-group" *ngIf="!isbiologia">
+          <label for="usr">Α.Ο.Θ</label>
+          <input  class="form-control" id="aot" ngModel  name="aot" required type="number" #aot="ngModel" [min]=0 [max]="20">
+          <span class="help-block" *ngIf="!aot.valid && aot.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</span>
+       </div>
+      
+    
+      <button class="btn btn-success" [disabled]="!f.valid"><span *ngIf="isbiologia">ΥΠΟΛΟΓΙΣΜΟΣ 3ο Πεδίο</span><span *ngIf="!isbiologia">ΥΠΟΛΟΓΙΣΜΟΣ 4ο Πεδίο</span></button>
+      
+    </form>
+    </div>
+    <div class="col-md-7 moria">
+        <h4 class="givespace">ΥΠΟΛΟΓΙΣΜΟΣ ΜΟΡΙΩΝ</h4>
+        <h6 *ngIf="isbiologia">3ο Επιστημονικό Πεδίο Επιστημών Υγείας και Ζωής: <span>{{moriatrito}}</span></h6> 
+        <h6 *ngIf="!isbiologia">4ο Επιστημονικό Πεδίο Επιστημών Οικονομίας και Πληροφορική:<span>{{moriatetarto}}</span></h6>
+    </div>
+    </div>
