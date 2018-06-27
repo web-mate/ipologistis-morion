@@ -47,7 +47,7 @@
     </div>
     <div class="col-md-7 moria">
         <h4 class="givespace">ΥΠΟΛΟΓΙΣΜΟΣ ΜΟΡΙΩΝ</h4>
-        <h6 *ngIf="isbiologia">3ο Επιστημονικό Πεδίο Επιστημών Υγείας και Ζωής: <span>{{moriatrito}}</span></h6> 
-        <h6 *ngIf="!isbiologia">4ο Επιστημονικό Πεδίο Επιστημών Οικονομίας και Πληροφορική:<span>{{moriatetarto}}</span></h6>
+        <h6 *ngIf="isbiologia">3ο Επιστημονικό Πεδίο Επιστημών Υγείας και Ζωής: <span>{{moriatrito | number :'1.0-0':'el'}}</span></h6> 
+        <h6 *ngIf="!isbiologia">4ο Επιστημονικό Πεδίο Επιστημών Οικονομίας και Πληροφορική:<span>{{moriatetarto | number :'1.0-0':'el'}}</span></h6>
     </div>
     </div>

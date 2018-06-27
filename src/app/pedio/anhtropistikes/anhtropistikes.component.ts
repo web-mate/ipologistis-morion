@@ -8,8 +8,8 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./anhtropistikes.component.css'],
 })
 export class AnhtropistikesComponent implements OnInit {
-  moriaproto:String;
-  moriatrito:String;
+  moriaproto:Number;
+  moriatrito:Number;
   islatinika= true;
   mathimakateuthinsis=1;
   @ViewChild('f') ipologisisForm:NgForm;
@@ -37,14 +37,14 @@ export class AnhtropistikesComponent implements OnInit {
     var arxaia = this.ipologisisForm.value.arxaiaproto;
     var istoria = this.ipologisisForm.value.istoriaproto;
     var latinika = this.ipologisisForm.value.latinikaproto;
-    this.moriaproto = String((((gloosa+arxaia+istoria+latinika)*2)+(arxaia*1.3)+(istoria*0.7))*100);
+    this.moriaproto = (((gloosa+arxaia+istoria+latinika)*2)+(arxaia*1.3)+(istoria*0.7))*100;
   }
   if (this.mathimakateuthinsis == 2){
     var gloosa = this.ipologisisForm.value.gloosaproto;
     var arxaia = this.ipologisisForm.value.arxaiaproto;
     var istoria = this.ipologisisForm.value.istoriaproto;
     var biologia = this.ipologisisForm.value.biologiaproto;
-    this.moriatrito = String((((gloosa+arxaia+istoria+biologia)*2)+(biologia*0.9)+(gloosa*0.4))*100);
+    this.moriatrito = (((gloosa+arxaia+istoria+biologia)*2)+(biologia*0.9)+(gloosa*0.4))*100;
   }
 
   }

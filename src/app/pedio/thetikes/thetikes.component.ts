@@ -9,8 +9,8 @@ import { NgForm } from '@angular/forms';
 })
 export class ThetikesComponent implements OnInit {
 
-  moriadeutero:String;
-  moriatrito:String;
+  moriadeutero:Number;
+  moriatrito:Number;
   isMathimatika= true;
   mathimakateuthinsis=1;
   @ViewChild('f') ipologisisForm:NgForm;
@@ -38,14 +38,14 @@ export class ThetikesComponent implements OnInit {
     var fisiki = this.ipologisisForm.value.fisiki;
     var ximia = this.ipologisisForm.value.ximia;
     var mathimatika = this.ipologisisForm.value.mathimatika;
-    this.moriadeutero = String((((glosa+fisiki+ximia+mathimatika)*2)+(mathimatika*1.3)+(fisiki*0.7))*100);
+    this.moriadeutero = (((glosa+fisiki+ximia+mathimatika)*2)+(mathimatika*1.3)+(fisiki*0.7))*100;
   }
   if (this.mathimakateuthinsis == 2){
     var glosa = this.ipologisisForm.value.glossa;
     var fisiki = this.ipologisisForm.value.fisiki;
     var ximia = this.ipologisisForm.value.ximia;
     var biologia = this.ipologisisForm.value.biologia;
-    this.moriatrito = String((((glosa+fisiki+ximia+biologia)*2)+(biologia*1.3)+(ximia*0.7))*100);
+    this.moriatrito = (((glosa+fisiki+ximia+biologia)*2)+(biologia*1.3)+(ximia*0.7))*100;
   }
 
   }

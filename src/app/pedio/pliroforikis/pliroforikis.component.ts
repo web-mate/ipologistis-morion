@@ -10,8 +10,8 @@ import { NgForm } from '@angular/forms';
 
 export class PliroforikisComponent implements OnInit {
   submitted = false;
-  moriatrito:String;
-  moriatetarto:String;
+  moriatrito:Number;
+  moriatetarto:Number;
   isbiologia= true;
   mathimakateuthinsis=1;
   @ViewChild('f') ipologisisForm:NgForm;
@@ -39,14 +39,14 @@ export class PliroforikisComponent implements OnInit {
     var mathimatika = this.ipologisisForm.value.mathimatika;
     var aepp = this.ipologisisForm.value.aepp;
     var biologia = this.ipologisisForm.value.biologia;
-    this.moriatrito = String((((glosa+mathimatika+aepp+biologia)*2)+(biologia*0.9)+(glosa*0.4))*100);
+    this.moriatrito =(((glosa+mathimatika+aepp+biologia)*2)+(biologia*0.9)+(glosa*0.4))*100;
   }
   if (this.mathimakateuthinsis == 2){
     var glosa = this.ipologisisForm.value.glossa;
     var mathimatika = this.ipologisisForm.value.mathimatika;
     var aepp = this.ipologisisForm.value.aepp;
     var aot = this.ipologisisForm.value.aot;
-    this.moriatetarto = String((((glosa+mathimatika+aepp+aot)*2)+(mathimatika*1.3)+(aot*0.7))*100);
+    this.moriatetarto = (((glosa+mathimatika+aepp+aot)*2)+(mathimatika*1.3)+(aot*0.7))*100;
   }
   this.submitted=true;
 

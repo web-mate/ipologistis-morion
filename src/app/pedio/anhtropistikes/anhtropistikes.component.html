@@ -48,7 +48,7 @@
 </div>
 <div class="col-md-7 moria">
     <h4 class="givespace">ΥΠΟΛΟΓΙΣΜΟΣ ΜΟΡΙΩΝ</h4>
-    <h6 *ngIf="islatinika">1ο Επιστημονικό Πεδίο Ανθρωπιστικών, Νομικών και Κοινωνικών Επιστημών: <span>{{moriaproto}}</span></h6> 
-    <h6 *ngIf="!islatinika">3ο Επιστημονικό Πεδίο Επιστημών Υγείας και Ζωής:<span>{{moriatrito}}</span></h6>
+    <h6 *ngIf="islatinika">1ο Επιστημονικό Πεδίο Ανθρωπιστικών, Νομικών και Κοινωνικών Επιστημών: <span>{{ moriaproto | number :'1.0-0':'el'}}</span></h6> 
+    <h6 *ngIf="!islatinika">3ο Επιστημονικό Πεδίο Επιστημών Υγείας και Ζωής:<span>{{ moriatrito | number :'1.0-0':'el' }}</span></h6>
 </div>
 </div>

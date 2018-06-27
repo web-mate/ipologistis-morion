@@ -48,7 +48,7 @@
     </div>
     <div class="col-md-7 moria">
         <h4 class="givespace">ΥΠΟΛΟΓΙΣΜΟΣ ΜΟΡΙΩΝ</h4>
-        <h6 *ngIf="isMathimatika">2ο Επιστημονικό Πεδίο Θετικών και Τεχνολογικών Επιστημών: <span>{{moriadeutero}}</span></h6> 
-        <h6 *ngIf="!isMathimatika">3ο Επιστημονικό Πεδίο Επιστημών Υγείας και Ζωής:<span>{{moriatrito}}</span></h6>
+        <h6 *ngIf="isMathimatika">2ο Επιστημονικό Πεδίο Θετικών και Τεχνολογικών Επιστημών: <span>{{moriadeutero | number :'1.0-0':'el'}}</span></h6> 
+        <h6 *ngIf="!isMathimatika">3ο Επιστημονικό Πεδίο Επιστημών Υγείας και Ζωής:<span>{{moriatrito | number :'1.0-0':'el'}}</span></h6>
     </div>
     </div>
