@@ -5,7 +5,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   selector: 'app-dialog',
   template: `<div>
   <h3>Τα μόρια σας είναι:<span>{{ data | number :'1.0-0':'el'}}</span></h3>
-  </div>`,
+  </div>
+  <br/>
+  <button mat-button class="btn" (click)="closeit()">Κλείσιμο</button>`
 })
 export class moriadialogComponent {
   constructor(
@@ -15,5 +17,7 @@ export class moriadialogComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
-
+  closeit(){
+    this.dialogRef.close();
+  }
 }
