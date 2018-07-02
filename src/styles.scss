@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+.givespace{
+    margin: 50px 0;
+}
+.ipologistismorion{
+    padding: 50px 0;
+}
+.ipologistismorion h3{
+    padding-bottom: 30px;
+}
+.btn{
+    margin-top: 20px;
+}
+.moria span{
+    color:#4d897d;
+    font-weight: bold;
+}
+.moria h6{
+    font-size: 14px;
+    
+}
+.moria h4{
+    
+}
+
+
+@import '~@angular/material/theming';
+@import url('//fonts.googleapis.com/icon?family=Material+Icons');
+
+@include mat-core();
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body {
+    font-weight: normal;
+}
+
+h1, h2, h3, h4 {
+    font-weight: normal;
+}
+.mat-form-field{
+    width: 100%;
+}
+.mat-button{
+    background-color: darkseagreen;
+}

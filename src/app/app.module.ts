@@ -12,6 +12,10 @@ import { appService } from './appservice.service';
 import { CustomFormsModule } from 'ng2-validation';
 import { registerLocaleData } from '@angular/common';
 import localeel from '@angular/common/locales/el';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule,MatDialogModule, MatButtonModule, MatSelectModule, MatIconModule,MatCardModule } from '@angular/material';
+import { moriadialogComponent } from './pedio/dialog/dialog.component';
+
 registerLocaleData(localeel, 'el');
 
 const appRoutes:Routes = [
@@ -29,18 +33,22 @@ const appRoutes:Routes = [
     AnhtropistikesComponent,
     ThetikesComponent,
     PliroforikisComponent,
+    moriadialogComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    CustomFormsModule
+    CustomFormsModule,
+    MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,MatCardModule,MatDialogModule
   ],
   providers: [appService,
     {
       provide: LOCALE_ID,
       useValue: "el"
     }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [moriadialogComponent]
 })
 export class AppModule { }

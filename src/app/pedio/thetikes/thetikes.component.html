@@ -1,54 +1,49 @@
-<div class="row">
+<mat-card-content>
     <div class="proto col-md-5 ">
       <h4 class="givespace">ΕΙΣΑΓΩΓΗ ΒΑΘΜΩΝ</h4>
       <p>Για το πρώτο πεδίο εισάγουμε βαθμό στο μάθημα <b>Μαθηματικά προσανατολισμού</b> ενώ για το τρίτο πεδίο εισάγουμε βαθμό στη <b>Βιολογία προσανατολισμού</b></p>
     <form (ngSubmit)="onSubmit()" #f="ngForm" class="formmathimata">
-      <div class="form-group">
-        <label for="usr">Ν.Γλώσσα</label>
-        <input   class="form-control"  id="glossa"    ngModel required name="glossa" type="number" #glossa="ngModel" [min]=0 [max]="20">
-        <span class="help-block" *ngIf="!glossa.valid && glossa.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</span>
-      </div>
+
+      <mat-form-field>
+        <input matInput placeholder="Ν.Γλώσσα"  class="form-control"  id="glossa"    ngModel required name="glossa" type="number" #glossa="ngModel" [min]=0 [max]="20">
+        <mat-error class="help-block" *ngIf="!glossa.valid && glossa.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</mat-error>
+      </mat-form-field>
       
-      <div class="form-group">
-        <label for="usr">Φυσική  προσανατολισμού</label>
-        <input  class="form-control" id="fisiki"   required ngModel name="fisiki" type="number" #fisiki="ngModel" [min]=0 [max]="20">
-        <span class="help-block" *ngIf="!fisiki.valid && fisiki.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</span>
-      </div>
+      <mat-form-field>
+        <input matInput placeholder="Φυσική  προσανατολισμού"  class="form-control" id="fisiki"   required ngModel name="fisiki" type="number" #fisiki="ngModel" [min]=0 [max]="20">
+        <mat-error class="help-block" *ngIf="!fisiki.valid && fisiki.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</mat-error>
+      </mat-form-field>
       
-      <div class="form-group">
-        <label for="usr">Χημεία προσανατολισμού</label>
-        <input  class="form-control" id="ximia"   required ngModel name="ximia" type="number" #ximia="ngModel" [min]=0 [max]="20">
-        <span class="help-block" *ngIf="!ximia.valid && ximia.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</span>
-      </div>
+      <mat-form-field>
+        <input matInput placeholder="Χημεία προσανατολισμού" class="form-control" id="ximia"   required ngModel name="ximia" type="number" #ximia="ngModel" [min]=0 [max]="20">
+        <mat-error class="help-block" *ngIf="!ximia.valid && ximia.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</mat-error>
+      </mat-form-field>
       
-      <div class="form-group">
-          <label for="usr">Επιλέξτε Μάθημα Επιλογής</label>
-          <select class="form-control" id="mathimaepilogis" (change)="changelesson($event.target)">
-              <option [value]="1">Μαθηματικά προσανατολισμού</option>
-              <option [value]="2">Βιολογία προσανατολισμού </option>
-            </select>
-      </div>
+      <mat-form-field>
+          <mat-select placeholder="Επιλέξτε Μάθημα Επιλογής" class="form-control" id="mathimaepilogis" (selectionChange)="changelesson($event)">
+              <mat-option [value]="1">Μαθηματικά προσανατολισμού</mat-option>
+              <mat-option [value]="2">Βιολογία προσανατολισμού </mat-option>
+            </mat-select>
+     </mat-form-field>
     
-      <div class="form-group" *ngIf="isMathimatika">
-        <label for="usr">Μαθηματικά προσανατολισμού </label>
-        <input  class="form-control" id="mathimatika" ngModel  name="mathimatika" required type="number"  #mathimatika="ngModel" [min]=0 [max]="20">
-        <span class="help-block" *ngIf="!mathimatika.valid && mathimatika.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</span>
-      </div>
+      <mat-form-field *ngIf="isMathimatika">
+        <input matInput placeholder="Μαθηματικά προσανατολισμού" class="form-control" id="mathimatika" ngModel  name="mathimatika" required type="number"  #mathimatika="ngModel" [min]=0 [max]="20">
+        <mat-error class="help-block" *ngIf="!mathimatika.valid && mathimatika.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</mat-error>
+      </mat-form-field>
       
-      <div class="form-group" *ngIf="!isMathimatika">
-          <label for="usr">Βιολογία προσανατολισμού</label>
-          <input  class="form-control" id="biologia" ngModel  name="biologia" required type="number" #biologia="ngModel" [min]=0 [max]="20">
-          <span class="help-block" *ngIf="!biologia.valid && biologia.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</span>
-       </div>
+      <mat-form-field *ngIf="!isMathimatika">
+          <input matInput placeholder="Βιολογία προσανατολισμού" class="form-control" id="biologia" ngModel  name="biologia" required type="number" #biologia="ngModel" [min]=0 [max]="20">
+          <mat-error class="help-block" *ngIf="!biologia.valid && biologia.touched">Παρακαλώ εισάγεται μια έγκυρη βαθμολογία</mat-error>
+       </mat-form-field>
       
     
-      <button class="btn btn-success" [disabled]="!f.valid"><span *ngIf="isMathimatika">ΥΠΟΛΟΓΙΣΜΟΣ 2ο Πεδίο</span><span *ngIf="!isMathimatika">ΥΠΟΛΟΓΙΣΜΟΣ 3ο Πεδίο</span></button>
+      <button mat-button class="btn btn-success" [disabled]="!f.valid"><span *ngIf="isMathimatika">ΥΠΟΛΟΓΙΣΜΟΣ 2ο Πεδίο</span><span *ngIf="!isMathimatika">ΥΠΟΛΟΓΙΣΜΟΣ 3ο Πεδίο</span></button>
       
     </form>
-    </div>
-    <div class="col-md-7 moria">
+   </div>
+    <!-- <div class="col-md-7 moria">
         <h4 class="givespace">ΥΠΟΛΟΓΙΣΜΟΣ ΜΟΡΙΩΝ</h4>
         <h6 *ngIf="isMathimatika">2ο Επιστημονικό Πεδίο Θετικών και Τεχνολογικών Επιστημών: <span>{{moriadeutero | number :'1.0-0':'el'}}</span></h6> 
         <h6 *ngIf="!isMathimatika">3ο Επιστημονικό Πεδίο Επιστημών Υγείας και Ζωής:<span>{{moriatrito | number :'1.0-0':'el'}}</span></h6>
-    </div>
-    </div>
+    </div> -->
+    </mat-card-content>
